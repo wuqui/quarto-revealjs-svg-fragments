@@ -88,18 +88,18 @@ end
 
 return {
   ["svg-frag"] = function(args, kwargs, meta)
-    local file = kwargs["file"] or args[1]
-    if not file or file == "" then
+    local file = pandoc.utils.stringify(kwargs["file"] or args[1] or "")
+    if file == "" then
       return pandoc.Para({ pandoc.Str("svg-frag: missing 'file' parameter") })
     end
-    local start = tonumber(kwargs["start"]) or 0
-    local class_name = kwargs["class"] or "fragment"
-    local effect = kwargs["effect"]
-    local reduced = kwargs["reduced_motion"]
+    local start = tonumber(pandoc.utils.stringify(kwargs["start"] or "0")) or 0
+    local class_name = pandoc.utils.stringify(kwargs["class"] or "fragment")
+    local effect = pandoc.utils.stringify(kwargs["effect"] or "")
+    local reduced = pandoc.utils.stringify(kwargs["reduced_motion"] or "")
     local svg = read_file(file)
     if reduced == "show-all" then return pandoc.RawBlock('html', svg) end
     local combined_class = class_name
-    if effect and effect ~= "" then combined_class = combined_class .. " " .. effect end
+    if effect ~= "" then combined_class = combined_class .. " " .. effect end
     local out = annotate_layers(svg, start, combined_class)
     return pandoc.RawBlock('html', out)
   end
