@@ -32,13 +32,16 @@ quarto add wuqui/quarto-revealjs-svg-fragments
 - If no layers, SVG is emitted unchanged.
 - Extension contributes responsive SVG CSS for Reveal.js slides.
 
-## Optional pre-process
+## Optional: Pre-crop large canvases
 
-Crop to drawing with Inkscape CLI wrapper:
+For SVGs with large canvases, crop to drawing bounds before using the extension:
 
 ```bash
 lua src/crop_svg_to_drawing.lua img/source.svg img/source_cropped.svg
+{{< svg-frag file="img/source_cropped.svg" >}}
 ```
+
+The CLI script wraps Inkscape's `--export-area-drawing` for convenience.
 
 ## License
 
