@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="wuqui">
-  <title>Animate diagrams</title>
+  <title>SVG Fragments Extension</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="example_files/libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link rel="stylesheet" href="custom.css">
@@ -128,7 +194,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Animate diagrams</h1>
+  <h1 class="title">SVG Fragments Extension</h1>
+  <p class="subtitle">Complete Feature Demonstration</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -139,35 +206,18 @@ wuqui
 </div>
 
 </section>
+<section id="overview" class="title-slide slide level1 center">
+<h1>Overview</h1>
+<p>This extension maps Inkscape layers to Reveal.js fragments, allowing step-by-step reveal of SVG diagrams.</p>
+</section>
+
 <section>
-<section id="diagrams" class="title-slide slide level1 center">
-<h1>Diagrams</h1>
+<section id="basic-usage" class="title-slide slide level1 center">
+<h1>Basic Usage</h1>
 
 </section>
-<section id="static" class="slide level2">
-<h2>static</h2>
-<h3 id="image-embed">image embed</h3>
-
-<img data-src="img/static.svg" class="r-stretch"></section>
-<section class="slide level2">
-
-<h3 id="svg-embed"><code>svg</code> embed</h3>
-<!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="static.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-<sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="2.5992175" inkscape:cx="37.703655" inkscape:cy="105.80107" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer1"></sodipodi:namedview> <defs id="defs1"></defs> <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" id="text2"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> </g>
-</svg>
-</section>
-<section id="animated" class="slide level2">
-<h2>animated</h2>
-<!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="static.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-<sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="2.5992175" inkscape:cx="37.703655" inkscape:cy="105.80107" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer1"></sodipodi:namedview> <defs id="defs1"></defs> <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" class="fragment" data-fragment-index="0" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" class="fragment" data-fragment-index="2" id="text2"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" class="fragment" data-fragment-index="1" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> </g>
-</svg>
-</section>
-<section id="layered" class="slide level2">
-<h2>layered</h2>
+<section id="default-behaviour" class="slide level2">
+<h2>Default behaviour</h2>
 <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
@@ -185,14 +235,188 @@ wuqui
   </g>
 </svg>
 
+<pre><code>{{&lt; svg-frag file="img/layered.svg" &gt;}}</code></pre>
+<aside class="notes">
+<ul>
+<li>Responsive sizing via CSS (default)</li>
+<li>Layers reveal in order</li>
+<li>Default <code>fragment</code> class</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="misrepresentations-cropped" class="slide level2">
-<h2><em>misrepresentations</em> (cropped)</h2>
-<!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<section id="how-it-works" class="slide level2">
+<h2>How it works</h2>
+<ol type="1">
+<li>Create layers in Inkscape (Layer 1, Layer 2, Layer 3)</li>
+<li>Export as plain SVG<br>
+</li>
+<li>Use <code>svg-frag</code> shortcode</li>
+<li>Layers become fragments automatically</li>
+</ol>
+</section>
+<section id="svg-requirements" class="slide level2">
+<h2>SVG requirements</h2>
+<p>Your SVG must have Inkscape layer structure:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource xml number-lines code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href=""></a>&lt;<span class="kw">svg</span> <span class="er">...</span>&gt;</span>
+<span id="cb2-2"><a href=""></a>  &lt;<span class="kw">g</span><span class="ot"> inkscape:groupmode=</span><span class="st">"layer"</span> </span>
+<span id="cb2-3"><a href=""></a><span class="ot">     inkscape:label=</span><span class="st">"Layer 1"</span>&gt;</span>
+<span id="cb2-4"><a href=""></a>    <span class="co">&lt;!-- content --&gt;</span></span>
+<span id="cb2-5"><a href=""></a>  &lt;/<span class="kw">g</span>&gt;</span>
+<span id="cb2-6"><a href=""></a>  &lt;<span class="kw">g</span><span class="ot"> inkscape:groupmode=</span><span class="st">"layer"</span> </span>
+<span id="cb2-7"><a href=""></a><span class="ot">     inkscape:label=</span><span class="st">"Layer 2"</span>&gt;</span>
+<span id="cb2-8"><a href=""></a>    <span class="co">&lt;!-- content --&gt;</span></span>
+<span id="cb2-9"><a href=""></a>  &lt;/<span class="kw">g</span>&gt;</span>
+<span id="cb2-10"><a href=""></a>&lt;/<span class="kw">svg</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Layers with numeric suffixes (Layer 1, Layer 2) are ordered by number.</p>
+</section></section>
+<section>
+<section id="parameters" class="title-slide slide level1 center">
+<h1>Parameters</h1>
+
+</section>
+<section id="custom-start-index" class="slide level2">
+<h2>Custom start index</h2>
+<div style="width:300px"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg width="72.343735mm" height="38.741531mm" viewbox="0 0 72.343735 38.741531" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="misrepresenations.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-<sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="3.7453404" inkscape:cx="335.08303" inkscape:cy="172.74798" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer12"></sodipodi:namedview> <defs id="defs1"></defs> <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="0"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="94.167282" y="23.585823" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="94.167282" y="23.585823">misrepresentations</tspan></text> </g> <g inkscape:groupmode="layer" id="layer4" inkscape:label="Layer 2" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="1"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="114.83529" y="22.882753" id="text9"><tspan sodipodi:role="line" id="tspan9" style="stroke-width:0.264583" x="114.83529" y="22.882753">n</tspan></text> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 101.88847,24.508633 90.025568,31.975636" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 103.93587,24.508633 11.5016,7.82831" id="path4" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> </g> <g inkscape:groupmode="layer" id="layer5" inkscape:label="Layer 3" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="2"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="100.86477" y="33.661736" id="text10"><tspan sodipodi:role="line" id="tspan10" style="stroke-width:0.264583" x="100.86477" y="33.661736">n</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="81.225304" y="34.498569" id="text2"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="81.225304" y="34.498569">misrepresentation</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="116.34074" y="34.143475" id="text3"><tspan sodipodi:role="line" id="tspan3" style="stroke-width:0.264583" x="116.34074" y="34.143475">{s}</tspan></text> </g> <g inkscape:groupmode="layer" id="layer6" inkscape:label="Layer 4" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="3"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="116.89549" y="28.181917" id="text8"><tspan sodipodi:role="line" id="tspan8" style="stroke-width:0.264583" x="116.89549" y="28.181917">inflection</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="119.95238" y="35.745529" id="text23"><tspan sodipodi:role="line" id="tspan23" style="stroke-width:0.264583" x="119.95238" y="35.745529">gr.bd</tspan></text> </g> <g inkscape:groupmode="layer" id="layer7" inkscape:label="Layer 5" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="4"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="72.080673" y="45.765503" id="text4"><tspan sodipodi:role="line" id="tspan4" style="stroke-width:0.264583" x="72.080673" y="45.765503">misrepresent</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="97.191483" y="45.645069" id="text5"><tspan sodipodi:role="line" id="tspan5" style="stroke-width:0.264583" x="97.191483" y="45.645069">{ation}</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="86.292061" y="44.741802" id="text11"><tspan sodipodi:role="line" id="tspan11" style="stroke-width:0.264583" x="86.292061" y="44.741802">v</tspan></text> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 89.664261,35.709137 -8.91223,7.165917" id="path19" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 91.229922,35.769356 8.912228,6.985262" id="path20" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="104.90535" y="47.401676" id="text22"><tspan sodipodi:role="line" id="tspan22" style="stroke-width:0.264583" x="104.90535" y="47.401676">lx.bd</tspan></text> </g> <g inkscape:groupmode="layer" id="layer8" inkscape:label="Layer 6" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="5"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="67.315552" y="37.934864" id="text15"><tspan sodipodi:role="line" id="tspan15" style="stroke-width:0.264583" x="67.315552" y="37.934864">derivation/</tspan><tspan sodipodi:role="line" style="stroke-width:0.264583" x="67.315552" y="40.5807" id="tspan16">suffixation</tspan></text> </g> <g inkscape:groupmode="layer" id="layer9" inkscape:label="Layer 7" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="6"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="61.422131" y="58.471455" id="text6"><tspan sodipodi:role="line" id="tspan6" style="stroke-width:0.264583" x="61.422131" y="58.471455">{mis}</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="80.450951" y="58.290802" id="text7"><tspan sodipodi:role="line" id="tspan7" style="stroke-width:0.264583" x="80.450951" y="58.290802">{represent}</tspan></text> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 77.078746,47.150514 66.661071,55.340133" id="path21" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 79.668112,47.090298 6.4433,8.249835" id="path22" inkscape:connector-type="polyline" inkscape:connector-curvature="0"></path> </g> <g inkscape:groupmode="layer" id="layer10" inkscape:label="Layer 8" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="7"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="93.266907" y="56.664921" id="text12"><tspan sodipodi:role="line" id="tspan12" style="stroke-width:0.264583" x="93.266907" y="56.664921">v</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="93.347969" y="59.979237" id="text13"><tspan sodipodi:role="line" id="tspan13" style="stroke-width:0.264583" x="93.347969" y="59.979237">lx.fr</tspan></text> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="67.331558" y="60.408852" id="text14"><tspan sodipodi:role="line" id="tspan14" style="stroke-width:0.264583" x="67.331558" y="60.408852">lx.bd</tspan></text> </g> <g inkscape:groupmode="layer" id="layer12" inkscape:label="Layer 9" style="display:inline" transform="translate(-54.155317,-21.697294)" class="fragment" data-fragment-index="8"> <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#0000ff;stroke-width:0.264583" x="54.038528" y="49.234951" id="text17"><tspan sodipodi:role="line" style="stroke-width:0.264583" x="54.038528" y="49.234951" id="tspan18">derivation/</tspan><tspan sodipodi:role="line" style="stroke-width:0.264583" x="54.038528" y="51.880787" id="tspan19">prefixation</tspan></text> </g>
+
+<svg viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="layered.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="33.124042" inkscape:cx="2.5208276" inkscape:cy="8.0606105" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer3" showgrid="false"></sodipodi:namedview>
+  <defs id="defs1"></defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)" class="fragment" data-fragment-index="5">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 3" class="fragment" data-fragment-index="7">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" id="text2" transform="translate(-91.443165,-25.28912)"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Layer 2" class="fragment" data-fragment-index="6">
+    <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0" transform="translate(-91.443165,-25.28912)"></path>
+  </g>
 </svg>
+</div>
+<pre><code>{{&lt; svg-frag file="img/layered.svg" start=5 &gt;}}</code></pre>
+<p>Useful when combining with other fragments on the same slide.</p>
+</section>
+<section id="custom-class" class="slide level2">
+<h2>Custom class</h2>
+<div style="width:300px"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="layered.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="33.124042" inkscape:cx="2.5208276" inkscape:cy="8.0606105" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer3" showgrid="false"></sodipodi:namedview>
+  <defs id="defs1"></defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)" class="custom-frag" data-fragment-index="0">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 3" class="custom-frag" data-fragment-index="2">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" id="text2" transform="translate(-91.443165,-25.28912)"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Layer 2" class="custom-frag" data-fragment-index="1">
+    <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0" transform="translate(-91.443165,-25.28912)"></path>
+  </g>
+</svg>
+</div>
+<pre><code>{{&lt; svg-frag file="img/layered.svg" class="custom-frag" &gt;}}</code></pre>
+<p>Apply custom CSS styling or use Reveal.js classes.</p>
+</section></section>
+<section>
+<section id="sizing" class="title-slide slide level1 center">
+<h1>Sizing</h1>
+
+</section>
+<section id="custom-height" class="slide level2">
+<h2>Custom height</h2>
+<div style="height:300px"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg style="height:100%;width:auto" viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="layered.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="33.124042" inkscape:cx="2.5208276" inkscape:cy="8.0606105" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer3" showgrid="false"></sodipodi:namedview>
+  <defs id="defs1"></defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)" class="fragment" data-fragment-index="0">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 3" class="fragment" data-fragment-index="2">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" id="text2" transform="translate(-91.443165,-25.28912)"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Layer 2" class="fragment" data-fragment-index="1">
+    <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0" transform="translate(-91.443165,-25.28912)"></path>
+  </g>
+</svg>
+</div>
+<pre><code>{{&lt; svg-frag file="img/layered.svg" height="300px" &gt;}}</code></pre>
+<p>Override default responsive sizing.</p>
+</section>
+<section id="width-and-height" class="slide level2">
+<h2>Width and height</h2>
+<div style="width:300px;height:150px"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg style="height:100%;width:auto" viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="layered.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="33.124042" inkscape:cx="2.5208276" inkscape:cy="8.0606105" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer3" showgrid="false"></sodipodi:namedview>
+  <defs id="defs1"></defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)" class="fragment" data-fragment-index="0">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 3" class="fragment" data-fragment-index="2">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" id="text2" transform="translate(-91.443165,-25.28912)"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Layer 2" class="fragment" data-fragment-index="1">
+    <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0" transform="translate(-91.443165,-25.28912)"></path>
+  </g>
+</svg>
+</div>
+<pre><code>{{&lt; svg-frag file="img/layered.svg" width="300px" height="150px" &gt;}}</code></pre>
+<p>Specify exact dimensions.</p>
+</section>
+<section id="percentage-sizing" class="slide level2">
+<h2>Percentage sizing</h2>
+<div style="width:50%"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg viewbox="0 0 3.7692847 13.374123" version="1.1" id="svg1" inkscape:version="1.4.2 (ebf0e940, 2025-05-08)" sodipodi:docname="layered.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:zoom="33.124042" inkscape:cx="2.5208276" inkscape:cy="8.0606105" inkscape:window-width="1920" inkscape:window-height="1147" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer3" showgrid="false"></sodipodi:namedview>
+  <defs id="defs1"></defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-91.443166,-25.28912)" class="fragment" data-fragment-index="0">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="26.474579" id="text1"><tspan sodipodi:role="line" id="tspan1" style="stroke-width:0.264583" x="91.386322" y="26.474579">one</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer3" inkscape:label="Layer 3" class="fragment" data-fragment-index="2">
+    <text space="preserve" style="font-size:2.11667px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.264583" x="91.386322" y="38.63327" id="text2" transform="translate(-91.443165,-25.28912)"><tspan sodipodi:role="line" id="tspan2" style="stroke-width:0.264583" x="91.386322" y="38.63327">two</tspan></text>
+  </g>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Layer 2" class="fragment" data-fragment-index="1">
+    <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 93.14101,27.586027 0.101794,8.55065" id="path3" inkscape:connector-type="polyline" inkscape:connector-curvature="0" transform="translate(-91.443165,-25.28912)"></path>
+  </g>
+</svg>
+</div>
+<pre><code>{{&lt; svg-frag file="img/layered.svg" width="50%" &gt;}}</code></pre>
+<p>Responsive but constrained.</p>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1 center">
+<h1>Summary</h1>
+
+</section>
+<section id="all-parameters" class="slide level2">
+<h2>All parameters</h2>
+<ul>
+<li><code>file</code> (required) - SVG path</li>
+<li><code>start</code> (optional) - starting fragment index (default: 0)</li>
+<li><code>class</code> (optional) - fragment class name (default: “fragment”)</li>
+<li><code>width</code> (optional) - custom width (e.g., “600px”, “80%”)</li>
+<li><code>height</code> (optional) - custom height (e.g., “400px”, “50vh”)</li>
+</ul>
+<p>Examples:</p>
+<pre><code>{{&lt; svg-frag file="img/diagram.svg" &gt;}}
+{{&lt; svg-frag file="img/diagram.svg" start=5 width="600px" &gt;}}
+{{&lt; svg-frag file="img/diagram.svg" class="custom" width="80%" &gt;}}</code></pre>
 
 </section></section>
     </div>

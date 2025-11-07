@@ -1,4 +1,9 @@
 /inf/
-
-
 /.quarto/
+
+# Rendered output (built by CI)
+example.html
+example_files/
+anim-diag_files/
+example/example.html
+example/example_files/

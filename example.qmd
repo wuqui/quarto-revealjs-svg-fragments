@@ -1,36 +1,136 @@
 ---
-title: "Animate diagrams"
+title: "SVG Fragments Extension"
+subtitle: "Complete Feature Demonstration"
 author: "wuqui"
 format:
   revealjs:
     css: custom.css
 ---
 
-# Diagrams
+# Overview
 
-## static
+This extension maps Inkscape layers to Reveal.js fragments, allowing step-by-step reveal of SVG diagrams.
 
-### image embed
+# Basic Usage
 
-![](img/static.svg)
-
----
-
-### `svg` embed
-
-{{< include img/static.svg >}}
-
-
-## animated
-
-{{< include img/animated.svg >}}
-
-
-## layered
+## Default behaviour
 
 {{< svg-frag file="img/layered.svg" >}}
 
+```
+{{</* svg-frag file="img/layered.svg" */>}}
+```
 
-## *misrepresentations* (cropped)
+::: {.notes}
+- Responsive sizing via CSS (default)
+- Layers reveal in order
+- Default `fragment` class
+:::
 
-{{< include img/misrepresentations_cropped_frag.svg >}}
+---
+
+## How it works
+
+1. Create layers in Inkscape (Layer 1, Layer 2, Layer 3)
+2. Export as plain SVG  
+3. Use `svg-frag` shortcode
+4. Layers become fragments automatically
+
+---
+
+## SVG requirements
+
+Your SVG must have Inkscape layer structure:
+
+```xml
+<svg ...>
+  <g inkscape:groupmode="layer" 
+     inkscape:label="Layer 1">
+    <!-- content -->
+  </g>
+  <g inkscape:groupmode="layer" 
+     inkscape:label="Layer 2">
+    <!-- content -->
+  </g>
+</svg>
+```
+
+Layers with numeric suffixes (Layer 1, Layer 2) are ordered by number.
+
+# Parameters
+
+## Custom start index
+
+{{< svg-frag file="img/layered.svg" start=5 width="300px" >}}
+
+```
+{{</* svg-frag file="img/layered.svg" start=5 */>}}
+```
+
+Useful when combining with other fragments on the same slide.
+
+---
+
+## Custom class
+
+{{< svg-frag file="img/layered.svg" class="custom-frag" width="300px" >}}
+
+```
+{{</* svg-frag file="img/layered.svg" class="custom-frag" */>}}
+```
+
+Apply custom CSS styling or use Reveal.js classes.
+
+# Sizing
+
+## Custom height
+
+{{< svg-frag file="img/layered.svg" height="300px" >}}
+
+```
+{{</* svg-frag file="img/layered.svg" height="300px" */>}}
+```
+
+Override default responsive sizing.
+
+---
+
+## Width and height
+
+{{< svg-frag file="img/layered.svg" width="300px" height="150px" >}}
+
+```
+{{</* svg-frag file="img/layered.svg" width="300px" height="150px" */>}}
+```
+
+Specify exact dimensions.
+
+---
+
+## Percentage sizing
+
+{{< svg-frag file="img/layered.svg" width="50%" >}}
+
+```
+{{</* svg-frag file="img/layered.svg" width="50%" */>}}
+```
+
+Responsive but constrained.
+
+# Summary
+
+## All parameters
+
+- `file` (required) - SVG path
+- `start` (optional) - starting fragment index (default: 0)
+- `class` (optional) - fragment class name (default: "fragment")
+- `width` (optional) - custom width (e.g., "600px", "80%")
+- `height` (optional) - custom height (e.g., "400px", "50vh")
+
+Examples:
+
+```
+{{</* svg-frag file="img/diagram.svg" */>}}
+{{</* svg-frag file="img/diagram.svg" start=5 width="600px" */>}}
+{{</* svg-frag file="img/diagram.svg" class="custom" width="80%" */>}}
+```

@@ -1,6 +1,8 @@
 local function read_file(path)
   local f, err = io.open(path, "rb")
-  if not f then error("svg-frag: cannot open file: " .. tostring(err)) end
+  if not f then
+    return nil, "svg-frag: cannot open file '" .. path .. "': " .. tostring(err)
+  end
   local data = f:read("*a")
   f:close()
   return data
@@ -100,8 +102,36 @@ return {
       if c ~= "" then class_name = c end
     end
     
-    local svg = read_file(file)
+    local width = ""
+    if kwargs["width"] then
+      width = pandoc.utils.stringify(kwargs["width"])
+    end
+    
+    local height = ""
+    if kwargs["height"] then
+      height = pandoc.utils.stringify(kwargs["height"])
+    end
+    
+    local svg, err = read_file(file)
+    if not svg then
+      return pandoc.Para({ pandoc.Str(err) })
+    end
     local out = annotate_layers(svg, start, class_name)
+    
+    -- Add inline style for custom dimensions if specified
+    if width ~= "" or height ~= "" then
+      local style_parts = {}
+      if width ~= "" then table.insert(style_parts, "width:" .. width) end
+      if height ~= "" then table.insert(style_parts, "height:" .. height) end
+      local style = table.concat(style_parts, ";")
+      -- Wrap in div with inline style and override CSS for the SVG inside
+      if height ~= "" then
+        -- When height is specified, make SVG fill the container height
+        out = out:gsub("<svg", '<svg style="height:100%%;width:auto"', 1)
+      end
+      out = '<div style="' .. style .. '">' .. out .. '</div>'
+    end
+    
     return pandoc.RawBlock('html', out)
   end
 }

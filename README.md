@@ -2,10 +2,12 @@
 
 Quarto extension to inline SVGs and reveal Inkscape layers as Reveal.js fragments.
 
+**[View live example →](https://wuqui.github.io/quarto-revealjs-svg-fragments/example.html)**
+
 ## Install
 
 ```bash
-quarto add wuqui/quarto-revealjs-svg-fragments --no-prompt
+quarto add wuqui/quarto-revealjs-svg-fragments
 ```
 
 ## Usage (shortcode)
@@ -14,11 +16,15 @@ quarto add wuqui/quarto-revealjs-svg-fragments --no-prompt
 {{< svg-frag file="img/layered.svg" >}}
 {{< svg-frag file="img/layered.svg" start=5 >}}
 {{< svg-frag file="img/layered.svg" class="custom-fragment" >}}
+{{< svg-frag file="img/layered.svg" width="600px" >}}
+{{< svg-frag file="img/layered.svg" width="80%" height="400px" >}}
 ```
 
 - `file`: SVG path (required)
 - `start`: starting fragment index (default 0)
 - `class`: fragment class name (default `fragment`)
+- `width`: custom width (optional, e.g., `600px`, `80%`)
+- `height`: custom height (optional, e.g., `400px`, `50vh`)
 
 ## Notes
 

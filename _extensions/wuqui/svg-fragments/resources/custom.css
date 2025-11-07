@@ -1,7 +1,8 @@
 .reveal .slides svg {
-  width: 100%;
+  width: 95%;
   height: auto;
-  max-height: 75vh;
+  max-height: 60vh;
   display: block;
+  margin: 0 auto;
 }
 

@@ -14,12 +14,16 @@ quarto add wuqui/quarto-revealjs-svg-fragments --no-prompt
 {{< svg-frag file="img/layered.svg" >}}
 {{< svg-frag file="img/layered.svg" start=5 >}}
 {{< svg-frag file="img/layered.svg" class="custom-fragment" >}}
+{{< svg-frag file="img/layered.svg" width="600px" >}}
+{{< svg-frag file="img/layered.svg" width="80%" height="400px" >}}
 ```
 
 Parameters:
 - `file` (required): path to the SVG.
 - `start` (default `0`): starting fragment index.
 - `class` (default `fragment`): fragment class name.
+- `width` (optional): custom width (e.g., `600px`, `80%`). Overrides default CSS.
+- `height` (optional): custom height (e.g., `400px`, `50vh`). Overrides default CSS.
 
 Notes:
 - Layers are ordered by numeric suffix in `inkscape:label` if present (e.g., `Layer 2`), else by document order.
