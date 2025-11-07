@@ -1,0 +1,36 @@
+---
+title: "Animate diagrams"
+author: "wuqui"
+format:
+  revealjs:
+    css: custom.css
+---
+
+# Diagrams
+
+## static
+
+### image embed
+
+![](img/static.svg)
+
+---
+
+### `svg` embed
+
+{{< include img/static.svg >}}
+
+
+## animated
+
+{{< include img/animated.svg >}}
+
+
+## layered
+
+{{< svg-frag file="img/layered.svg" start=0 class="fragment" effect="fade-in" >}}
+
+
+## *misrepresentations* (cropped)
+
+{{< include img/misrepresentations_cropped_frag.svg >}}
