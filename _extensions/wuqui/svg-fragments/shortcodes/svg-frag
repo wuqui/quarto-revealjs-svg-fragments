@@ -135,6 +135,8 @@ return {
         table.insert(svg_style_parts, "height:" .. height)
       end
       local svg_style = table.concat(svg_style_parts, ";")
+      -- Escape % characters for gsub (Lua treats % as special in replacement strings)
+      svg_style = svg_style:gsub("%%", "%%%%")
       -- Apply style directly to SVG element to override CSS defaults
       out = out:gsub("<svg", '<svg style="' .. svg_style .. '"', 1)
     end
