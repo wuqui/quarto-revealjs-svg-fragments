@@ -11,15 +11,15 @@ quarto add wuqui/quarto-revealjs-svg-fragments --no-prompt
 ## Use
 
 ```markdown
-{{< svg-frag file="img/layered.svg" start=0 class="fragment" effect="fade-in" >}}
+{{< svg-frag file="img/layered.svg" >}}
+{{< svg-frag file="img/layered.svg" start=5 >}}
+{{< svg-frag file="img/layered.svg" class="custom-fragment" >}}
 ```
 
 Parameters:
 - `file` (required): path to the SVG.
 - `start` (default `0`): starting fragment index.
-- `class` (default `fragment`): fragment class base (effect appended if set).
-- `effect` (optional): e.g., `fade-in`, `fade-up`.
-- `reduced_motion` (optional): `show-all` to disable fragments.
+- `class` (default `fragment`): fragment class name.
 
 Notes:
 - Layers are ordered by numeric suffix in `inkscape:label` if present (e.g., `Layer 2`), else by document order.

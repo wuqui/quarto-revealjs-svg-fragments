@@ -11,14 +11,14 @@ quarto add wuqui/quarto-revealjs-svg-fragments --no-prompt
 ## Usage (shortcode)
 
 ```markdown
-{{< svg-frag file="img/layered.svg" start=0 class="fragment" effect="fade-in" >}}
+{{< svg-frag file="img/layered.svg" >}}
+{{< svg-frag file="img/layered.svg" start=5 >}}
+{{< svg-frag file="img/layered.svg" class="custom-fragment" >}}
 ```
 
 - `file`: SVG path (required)
-- `start`: starting index (default 0)
-- `class`: base fragment class (default `fragment`)
-- `effect`: reveal effect appended to class (optional)
-- `reduced_motion`: `show-all` to disable fragments (optional)
+- `start`: starting fragment index (default 0)
+- `class`: fragment class name (default `fragment`)
 
 ## Notes
 

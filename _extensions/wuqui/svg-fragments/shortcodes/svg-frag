@@ -93,14 +93,15 @@ return {
       return pandoc.Para({ pandoc.Str("svg-frag: missing 'file' parameter") })
     end
     local start = tonumber(pandoc.utils.stringify(kwargs["start"] or "0")) or 0
-    local class_name = pandoc.utils.stringify(kwargs["class"] or "fragment")
-    local effect = pandoc.utils.stringify(kwargs["effect"] or "")
-    local reduced = pandoc.utils.stringify(kwargs["reduced_motion"] or "")
+    
+    local class_name = "fragment"
+    if kwargs["class"] then
+      local c = pandoc.utils.stringify(kwargs["class"])
+      if c ~= "" then class_name = c end
+    end
+    
     local svg = read_file(file)
-    if reduced == "show-all" then return pandoc.RawBlock('html', svg) end
-    local combined_class = class_name
-    if effect ~= "" then combined_class = combined_class .. " " .. effect end
-    local out = annotate_layers(svg, start, combined_class)
+    local out = annotate_layers(svg, start, class_name)
     return pandoc.RawBlock('html', out)
   end
 }

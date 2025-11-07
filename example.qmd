@@ -28,7 +28,7 @@ format:
 
 ## layered
 
-{{< svg-frag file="img/layered.svg" start=0 class="fragment" effect="fade-in" >}}
+{{< svg-frag file="img/layered.svg" >}}
 
 
 ## *misrepresentations* (cropped)
