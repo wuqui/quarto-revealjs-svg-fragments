@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.1
+- Fix shortcode registration by returning table instead of assigning to global Shortcodes.
+- Shortcode now properly registers and processes SVG layers.
+
 ## v0.1.0
 - Initial release.
 - Quarto extension `_extensions/wuqui/svg-fragments/` with `svg-frag` shortcode.
